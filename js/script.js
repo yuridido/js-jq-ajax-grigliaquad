@@ -7,18 +7,30 @@ $(document).ready(function(){
         $('.container').append(clone);
     };
 
-    // $.ajax(
-    //     {
-    //         url: "https://flynn.boolean.careers/exercises/api/random/int",
-    //         method: "GET",
-    //         success: function (data, stato) {
-    //             $("#risultati").html(data);
-    //         },
-    //         error: function (richiesta, stato, errori) {
-    //             alert("E' avvenuto un errore. " + errore);
-    //         }
-    //     }
-    // );
+    $('.square').click(function() {
+        var quadrato = $(this)
+        $.ajax(
+            {
+                url: "https://flynn.boolean.careers/exercises/api/random/int",
+                method: "GET",
+                success: function (risposta) {
+                    console.log(risposta);
+                    quadrato.parseInt(.text(risposta.response));
+                },
+                error: function (richiesta, stato, errori) {
+                    alert("E' avvenuto un errore.");
+                }
+            }
+        );
+        console.log(quadrato.val());
+        if (quadrato['response'] < 5) {
+            quadrato.addClass('verde');
+        } else {
+            quadrato.addClass('giallo');
+        }
+
+    });
+
 
 
 

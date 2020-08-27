@@ -15,19 +15,22 @@ $(document).ready(function(){
                 method: "GET",
                 success: function (risposta) {
                     console.log(risposta);
-                    quadrato.parseInt(.text(risposta.response));
+                    quadrato.text(risposta.response);
                 },
                 error: function (richiesta, stato, errori) {
                     alert("E' avvenuto un errore.");
                 }
             }
+
         );
         console.log(quadrato.val());
-        if (quadrato['response'] < 5) {
+        // if (  < 5) {
+        if (parseInt(quadrato.html()) < 5) {
             quadrato.addClass('verde');
         } else {
             quadrato.addClass('giallo');
         }
+
 
     });
 

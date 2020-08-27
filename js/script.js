@@ -16,20 +16,18 @@ $(document).ready(function(){
                 success: function (risposta) {
                     console.log(risposta);
                     quadrato.text(risposta.response);
+                    if (risposta.response < 5) {
+                        quadrato.addClass('verde');
+                    } else {
+                        quadrato.addClass('giallo');
+                    }
                 },
                 error: function (richiesta, stato, errori) {
                     alert("E' avvenuto un errore.");
                 }
             }
-
         );
-        console.log(quadrato.val());
-        // if (  < 5) {
-        if (parseInt(quadrato.html()) < 5) {
-            quadrato.addClass('verde');
-        } else {
-            quadrato.addClass('giallo');
-        }
+
 
 
     });

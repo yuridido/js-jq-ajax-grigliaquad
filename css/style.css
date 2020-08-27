@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 900px;
+    height: 900px;
+    margin: 0 auto;
+}
+
+.template {
+    display: none;
+}
+
+
+.square {
+    float: left;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.verde {
+    background-color: lightgreen;
+}
+
+.giallo {
+    background-color: gold;
+}

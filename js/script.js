@@ -9,30 +9,29 @@ $(document).ready(function(){
 
     $('.square').click(function() {
         var quadrato = $(this)
-        $.ajax(
-            {
-                url: "https://flynn.boolean.careers/exercises/api/random/int",
-                method: "GET",
-                success: function (risposta) {
-                    console.log(risposta);
-                    quadrato.text(risposta.response);
-                    if (risposta.response < 5) {
-                        quadrato.addClass('verde');
-                    } else {
-                        quadrato.addClass('giallo');
+        if (quadrato.text() != "") {
+            return alert('già cliccato')
+        } else {
+            $.ajax(
+                {
+                    url: "https://flynn.boolean.careers/exercises/api/random/int",
+                    method: "GET",
+                    success: function (risposta) {
+                        console.log(risposta);
+                        quadrato.text(risposta.response);
+                        if (risposta.response <= 5) {
+                            quadrato.addClass('verde');
+                        } else {
+                            quadrato.addClass('giallo');
+                        }
+                    },
+                    error: function (richiesta, stato, errori) {
+                        alert("E' avvenuto un errore.");
                     }
-                },
-                error: function (richiesta, stato, errori) {
-                    alert("E' avvenuto un errore.");
                 }
-            }
-        );
-
-
-
+            );
+        }
     });
-
-
 
 
 
